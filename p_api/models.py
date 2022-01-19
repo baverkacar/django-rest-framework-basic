@@ -13,8 +13,8 @@ class UserProfileManager(BaseUserManager):
         email = self.normalize_email(email)
         user = self.model(email=email, name=name,)
 
-        user.set_password(password)
-        user.save(using=self._db)
+        user.set_password(password) # convert to hash while saving it database.
+        user.save(using=self._db) # standart code of saving user to db in Django.
 
         return user
 
